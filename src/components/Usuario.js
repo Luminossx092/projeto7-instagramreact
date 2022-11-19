@@ -5,13 +5,13 @@ export default function Usuario(p) {
     const [imagem, setImagem] = React.useState(p.img)
 
     return (
-        <div class="usuario">
-            <img onClick={()=>setImagem(prompt("Insira um novo icone de perfil:"))} src={imagem} />
+        <div data-test="user" class="usuario">
+            <img data-test="profile-image" onClick={()=>setImagem(prompt("Insira um novo icone de perfil:"))} src={imagem} />
             <div class="texto">
-                <strong>{p.texto}</strong>
-                <span onClick={()=>setNome(prompt("Insira um novo nome de usuário:"))}>
+                <strong data-test="name">{p.texto}</strong>
+                <span>
                     {nome}
-                    <ion-icon name="pencil"></ion-icon>
+                    <ion-icon data-test="edit-name" onClick={()=>setNome(prompt("Insira um novo nome de usuário:"))} name="pencil"></ion-icon>
                 </span>
             </div>
         </div>

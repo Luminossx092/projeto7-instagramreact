@@ -16,7 +16,7 @@ export default function Post(p) {
         }
     }
     return (
-        <div class="post">
+        <div data-test="post" class="post">
             <div class="topo">
                 <div class="usuario">
                     <img src={p.image} />
@@ -28,25 +28,25 @@ export default function Post(p) {
             </div>
 
             <div class="conteudo">
-                <img onClick={() => DaLike(false)} src={p.conteudo} />
+                <img data-test="post-image" onClick={() => DaLike(false)} src={p.conteudo} />
             </div>
 
             <div class="fundo">
                 <div class="acoes">
                     <div>
-                        <ion-icon onClick={() => DaLike(true)} name={like}></ion-icon>
+                        <ion-icon data-test="like-post" onClick={() => DaLike(true)} name={like}></ion-icon>
                         <ion-icon name="chatbubble-outline"></ion-icon>
                         <ion-icon name="paper-plane-outline"></ion-icon>
                     </div>
                     <div>
-                        <ion-icon onClick={() => setBookmark("bookmark")} name={bookmark}></ion-icon>
+                        <ion-icon data-test="save-post" onClick={() => setBookmark("bookmark")} name={bookmark}></ion-icon>
                     </div>
                 </div>
 
                 <div class="curtidas">
                     <img src={p.imgComentario} />
                     <div class="texto">
-                        Curtido por <strong>{p.curtador}</strong> e <strong>outras {numeroLike} pessoas</strong>
+                        Curtido por <strong>{p.curtador}</strong> e <strong data-test="likes-number">outras {numeroLike} pessoas</strong>
                     </div>
                 </div>
             </div>
