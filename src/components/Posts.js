@@ -2,8 +2,8 @@ import Post from "./Post"
 
 export default function Posts() {
     const posts = [
-        {image:"assets/img/meowed.svg", nome:"meowed", conteudo:"assets/img/gato-telefone.svg", imgComentario:"assets/img/respondeai.svg", curtador:"respondeai", curtidas:"outras 101.523 pessoas" },
-        {image:"assets/img/barked.svg", nome:"barked", conteudo:"assets/img/dog.svg", imgComentario:"assets/img/adorable_animals.svg", curtador:"adorable_animals", curtidas:"outras 99.159 pessoas" }
+        {image:"assets/img/meowed.svg", nome:"meowed", conteudo:"assets/img/gato-telefone.svg", imgComentario:"assets/img/respondeai.svg", curtador:"respondeai", curtidas:"101.523" },
+        {image:"assets/img/barked.svg", nome:"barked", conteudo:"assets/img/dog.svg", imgComentario:"assets/img/adorable_animals.svg", curtador:"adorable_animals", curtidas:"99.159" }
     ]
     return (
         <div class="posts">

@@ -1,4 +1,20 @@
+import React from "react"
+
 export default function Post(p) {
+    const [bookmark, setBookmark] = React.useState("bookmark-outline")
+    const [like, setLike] = React.useState("heart-outline");
+    const [numeroLike, setNumeroLike] = React.useState(p.curtidas)
+
+    function DaLike(PodeDiminuirLike) {
+        if (like === "heart-outline") {
+            setLike("heart");
+            setNumeroLike(numeroLike.slice(0, numeroLike.length - 2) + (Number(numeroLike.slice(numeroLike.length - 2)) + 1))
+        }
+        else if (PodeDiminuirLike) {
+            setLike("heart-outline");
+            setNumeroLike(numeroLike.slice(0, numeroLike.length - 2) + (Number(numeroLike.slice(numeroLike.length - 2)) - 1))
+        }
+    }
     return (
         <div class="post">
             <div class="topo">
@@ -12,25 +28,25 @@ export default function Post(p) {
             </div>
 
             <div class="conteudo">
-                <img src={p.conteudo} />
+                <img onClick={() => DaLike(false)} src={p.conteudo} />
             </div>
 
             <div class="fundo">
                 <div class="acoes">
                     <div>
-                        <ion-icon name="heart-outline"></ion-icon>
+                        <ion-icon onClick={() => DaLike(true)} name={like}></ion-icon>
                         <ion-icon name="chatbubble-outline"></ion-icon>
                         <ion-icon name="paper-plane-outline"></ion-icon>
                     </div>
                     <div>
-                        <ion-icon name="bookmark-outline"></ion-icon>
+                        <ion-icon onClick={() => setBookmark("bookmark")} name={bookmark}></ion-icon>
                     </div>
                 </div>
 
                 <div class="curtidas">
                     <img src={p.imgComentario} />
                     <div class="texto">
-                        Curtido por <strong>{p.curtador}</strong> e <strong>{p.curtidas}</strong>
+                        Curtido por <strong>{p.curtador}</strong> e <strong>outras {numeroLike} pessoas</strong>
                     </div>
                 </div>
             </div>
