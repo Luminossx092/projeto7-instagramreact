@@ -3,15 +3,18 @@ import React from "react"
 export default function Post(p) {
     const [bookmark, setBookmark] = React.useState("bookmark-outline")
     const [like, setLike] = React.useState("heart-outline");
-    const [numeroLike, setNumeroLike] = React.useState(p.curtidas)
+    const [numeroLike, setNumeroLike] = React.useState(p.curtidas);
+    const [corLike, setCorLike] = React.useState(false);
 
     function DaLike(PodeDiminuirLike) {
         if (like === "heart-outline") {
             setLike("heart");
+            setCorLike(true);
             setNumeroLike(numeroLike.slice(0, numeroLike.length - 2) + (Number(numeroLike.slice(numeroLike.length - 2)) + 1))
         }
         else if (PodeDiminuirLike) {
             setLike("heart-outline");
+            setCorLike(false);
             setNumeroLike(numeroLike.slice(0, numeroLike.length - 2) + (Number(numeroLike.slice(numeroLike.length - 2)) - 1))
         }
     }
@@ -34,7 +37,7 @@ export default function Post(p) {
             <div class="fundo">
                 <div class="acoes">
                     <div>
-                        <ion-icon data-test="like-post" onClick={() => DaLike(true)} name={like}></ion-icon>
+                        <ion-icon data-test="like-post" onClick={() => DaLike(true)} style={{color: corLike ? 'red' : ''}} name={like}></ion-icon>
                         <ion-icon name="chatbubble-outline"></ion-icon>
                         <ion-icon name="paper-plane-outline"></ion-icon>
                     </div>
