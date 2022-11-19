@@ -5,6 +5,7 @@ export default function Post(p) {
     const [like, setLike] = React.useState("heart-outline");
     const [numeroLike, setNumeroLike] = React.useState(p.curtidas);
     const [corLike, setCorLike] = React.useState(false);
+    const [corBookmark, setCorBookmark] = React.useState("black");
 
     function DaLike(PodeDiminuirLike) {
         if (like === "heart-outline") {
@@ -42,7 +43,7 @@ export default function Post(p) {
                         <ion-icon name="paper-plane-outline"></ion-icon>
                     </div>
                     <div>
-                        <ion-icon data-test="save-post" onClick={() => setBookmark("bookmark")} name={bookmark}></ion-icon>
+                        <ion-icon data-test="save-post" onClick={() => {setBookmark("bookmark"); setCorBookmark("gray")}} style={{color: corBookmark}} name={bookmark}></ion-icon>
                     </div>
                 </div>
 
