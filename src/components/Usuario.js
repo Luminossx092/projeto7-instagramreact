@@ -1,11 +1,11 @@
-export default function Usuario() {
+export default function Usuario(p) {
     return (
         <div class="usuario">
-            <img src="assets/img/catanacomics.svg" />
+            <img src={p.img} />
             <div class="texto">
-                <strong>catanacomics</strong>
+                <strong>{p.texto}</strong>
                 <span>
-                    Catana
+                    {p.nome}
                     <ion-icon name="pencil"></ion-icon>
                 </span>
             </div>
